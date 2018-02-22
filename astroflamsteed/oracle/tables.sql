@@ -1156,8 +1156,7 @@ PARTITION BY HASH(designation)
 
 ALTER TABLE stellarParameters ADD CONSTRAINT stellarParameters_PK PRIMARY KEY (designation);
 ALTER TABLE stellarParameters ADD CONSTRAINT stellarParameters_FK FOREIGN KEY (spectralClass, stellarCategory)
-        REFERENCES stellarClasses (spectralClass, stellarCategory)
-        ON DELETE CASCADE;
+        REFERENCES stellarClasses (spectralClass, stellarCategory);
 
 INSERT INTO stellarParameters (designation, identifierHD, identifierHIP, identifierSAO, radialVelocity, parallax, parsecs, lightYears, apparentMagnitude, absoluteMagnitude, bolometricMagnitude, solarDiameter, absoluteLuminosity, bolometricLuminosity, solarMass, innerBoundary, outerBoundary, gregorianYear, spectralClass, stellarCategory) VALUES ('1 Canis Minoris', '58187', '35987', '96871', -1, 0.01031, 96.99, 316.35, 5.35, 0.42, 0.19, 3.64, 58.0764, 66.6807, 2.93, 7.78581, 11.2166, 24354.6, 'A5', 'IV');
 INSERT INTO stellarParameters (designation, identifierHD, identifierHIP, identifierSAO, radialVelocity, parallax, parsecs, lightYears, apparentMagnitude, absoluteMagnitude, bolometricMagnitude, solarDiameter, absoluteLuminosity, bolometricLuminosity, solarMass, innerBoundary, outerBoundary, gregorianYear, spectralClass, stellarCategory) VALUES ('1 Comae Berenices', '104452', '58661', '82106', 10.8, 0.00645, 155.04, 505.68, 6.55, 0.6, 0.41, 7.47, 49.204, 54.4503, 2.78, 7.03565, 10.1359, 19887.6, 'G0', 'II');

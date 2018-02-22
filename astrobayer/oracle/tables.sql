@@ -1156,8 +1156,7 @@ PARTITION BY HASH(designation)
 
 ALTER TABLE stellarParameters ADD CONSTRAINT stellarParameters_PK PRIMARY KEY (designation);
 ALTER TABLE stellarParameters ADD CONSTRAINT stellarParameters_FK FOREIGN KEY (spectralClass, stellarCategory)
-        REFERENCES stellarClasses (spectralClass, stellarCategory)
-        ON DELETE CASCADE;
+        REFERENCES stellarClasses (spectralClass, stellarCategory);
 
 INSERT INTO stellarParameters (designation, identifierHD, identifierHIP, identifierSAO, radialVelocity, parallax, parsecs, lightYears, apparentMagnitude, absoluteMagnitude, bolometricMagnitude, solarDiameter, absoluteLuminosity, bolometricLuminosity, solarMass, innerBoundary, outerBoundary, gregorianYear, spectralClass, stellarCategory) VALUES ('α Andromedae', '358', '677', '73765', -10.1, 0.03362, 29.74, 97, 2.05, -0.32, -1.38, 3.07, 114.815, 283.139, 4.24, 16.0437, 23.1133, 103414, 'B8', 'IV');
 INSERT INTO stellarParameters (designation, identifierHD, identifierHIP, identifierSAO, radialVelocity, parallax, parsecs, lightYears, apparentMagnitude, absoluteMagnitude, bolometricMagnitude, solarDiameter, absoluteLuminosity, bolometricLuminosity, solarMass, innerBoundary, outerBoundary, gregorianYear, spectralClass, stellarCategory) VALUES ('α Antliae', '90610', '51172', '201405', 12.2, 0.00891, 112.23, 366.05, 4.25, -1, -2.5, 65.14, 214.783, 794.328, 5.53, 26.8722, 38.7135, 290122, 'K4', 'III');
