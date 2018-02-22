@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="ADDD1093-1D1A-3DBC-71D1-354E52854433" containerWithKeyObject="072AA54F-0731-EE2B-A56A-6510F96B11E2" localFKIndex="29DD5D59-E358-8772-C502-771792F0B4F3" name="STELLARPARAMETERS_FK">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>FABIO</sourceObjSchema>
+<sourceObjName>STELLARPARAMETERS_FK</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-16 01:41:32 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>FABIO.STELLARCLASSES</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>CAF21FB2-EBBE-CBFE-822A-CEE339C19D38</referredTableID>
+<keyObject>312089C6-FC8F-7AD0-2D46-2FE453360F74</keyObject>
+<referredKeyID>312089C6-FC8F-7AD0-2D46-2FE453360F74</referredKeyID>
+<mandatory>false</mandatory>
+<refColNames>SPECTRALCLASS,STELLARCATEGORY</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

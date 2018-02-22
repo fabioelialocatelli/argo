@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4F9ECEAF-161F-9354-BF91-B0DEFED7E0A9" schemaObject="C7F30A94-BD5D-D004-656C-8845E2B9046C" name="STELLARNAMES">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>FABIO</sourceObjSchema>
+<sourceObjName>STELLARNAMES</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-16 01:41:31 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DESIGNATION" id="BF9EE440-06E6-C84D-1E2F-3BDC6A4BFD2B">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARNAMES</sourceObjSchema>
+<sourceObjName>DESIGNATION</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-16 01:41:31 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 BYTE</dataTypeSize>
+<ownDataTypeParameters>45 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="59825A60-5B4B-6127-7302-45260E912F7A" referredColumn="27B82126-0E33-EC2D-F1D8-82AAD9D920AF"/>
+</associations>
+</Column>
+<Column name="DENOMINATION" id="4C870BC6-49F0-3C68-7B98-F9400005ABC0">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARNAMES</sourceObjSchema>
+<sourceObjName>DENOMINATION</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-16 01:41:31 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 BYTE</dataTypeSize>
+<ownDataTypeParameters>255 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D4EE6914-0E31-26C2-7473-32E7D7AEF20A" name="STELLARNAMES_PK">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>FABIO</sourceObjSchema>
+<sourceObjName>STELLARNAMES_PK</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-16 01:41:32 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF9EE440-06E6-C84D-1E2F-3BDC6A4BFD2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6A416F3E-6428-77AB-4ADD-49DD6B43F632" schemaObject="C7F30A94-BD5D-D004-656C-8845E2B9046C" name="STELLARNAMES_PK">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>FABIO</sourceObjSchema>
+<sourceObjName>STELLARNAMES_PK</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-16 01:41:32 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF9EE440-06E6-C84D-1E2F-3BDC6A4BFD2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5E0E9FE4-9C43-CFA2-6F74-CBF820A1149E" name="STELLARNAMES_FK">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-16 01:41:32 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BF9EE440-06E6-C84D-1E2F-3BDC6A4BFD2B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

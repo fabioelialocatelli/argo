@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="59825A60-5B4B-6127-7302-45260E912F7A" containerWithKeyObject="4F9ECEAF-161F-9354-BF91-B0DEFED7E0A9" localFKIndex="5E0E9FE4-9C43-CFA2-6F74-CBF820A1149E" name="STELLARNAMES_FK">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>FABIO</sourceObjSchema>
+<sourceObjName>STELLARNAMES_FK</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-16 01:41:32 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<referredTableLongName>FABIO.STELLARPARAMETERS</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>072AA54F-0731-EE2B-A56A-6510F96B11E2</referredTableID>
+<keyObject>3ADB7EDD-BF9D-2FB9-BBF5-D37BB76150E3</keyObject>
+<referredKeyID>3ADB7EDD-BF9D-2FB9-BBF5-D37BB76150E3</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>DESIGNATION</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
