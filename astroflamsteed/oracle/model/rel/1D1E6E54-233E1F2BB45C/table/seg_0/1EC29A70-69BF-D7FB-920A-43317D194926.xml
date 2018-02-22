@@ -1,0 +1,359 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1EC29A70-69BF-D7FB-920A-43317D194926" schemaObject="C3A0D281-EA7D-93D6-420B-F192B5F896F7" name="STELLARPARAMETERS">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>FABIO</sourceObjSchema>
+<sourceObjName>STELLARPARAMETERS</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DESIGNATION" id="7E07EFF2-1460-4FEF-D3DB-1B1FF2EFB19E">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>DESIGNATION</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>45 CHAR</dataTypeSize>
+<ownDataTypeParameters>45 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDENTIFIERHD" id="AE25936A-02A9-9BCE-9A55-055076C0016D">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>IDENTIFIERHD</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDENTIFIERHIP" id="1BABF894-C61F-A52E-0F18-BCB066889FBA">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>IDENTIFIERHIP</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDENTIFIERSAO" id="4EEFB20C-2442-BF99-E53F-104E63E5A2AE">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>IDENTIFIERSAO</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 BYTE</dataTypeSize>
+<ownDataTypeParameters>10 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RADIALVELOCITY" id="75F99EA5-1061-01F5-DBC5-545EB5ECD39D">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>RADIALVELOCITY</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PARALLAX" id="AB0C1272-F3ED-86D6-9651-923FFE69B111">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>PARALLAX</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PARSECS" id="457714D6-491B-9357-C398-3EC2950E4275">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>PARSECS</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LIGHTYEARS" id="0B9C73A3-F988-6FC2-AFBA-C30CE15FBC28">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>LIGHTYEARS</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="APPARENTMAGNITUDE" id="D6C8CD61-35FD-D6D0-A75F-84AF5840015C">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>APPARENTMAGNITUDE</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ABSOLUTEMAGNITUDE" id="E307CCEF-DCD4-ABC7-3C89-1B5D05B54F86">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>ABSOLUTEMAGNITUDE</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BOLOMETRICMAGNITUDE" id="D45A0C9C-CC2B-D57C-1ACB-7A3A2938526D">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>BOLOMETRICMAGNITUDE</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SOLARDIAMETER" id="B60F134C-003F-7215-E700-B0555A055EA7">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>SOLARDIAMETER</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ABSOLUTELUMINOSITY" id="68714046-C54A-7F4E-940C-423505D02795">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>ABSOLUTELUMINOSITY</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BOLOMETRICLUMINOSITY" id="79157F26-47BA-E657-AAAA-1A10ADACE1FA">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>BOLOMETRICLUMINOSITY</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SOLARMASS" id="744FC0AB-30E8-5DAE-7E87-339E7AFF18C7">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>SOLARMASS</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="INNERBOUNDARY" id="1B098690-0291-E8AA-53EE-0F3F7D51198A">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>INNERBOUNDARY</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OUTERBOUNDARY" id="D33CC89C-3A5C-F741-A0BA-2309432EB6CA">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>OUTERBOUNDARY</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="GREGORIANYEAR" id="B13844FB-D94F-3E93-7271-EE1B1C925BCD">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>GREGORIANYEAR</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SPECTRALCLASS" id="78AAB5B5-2F00-7AB4-31AA-674B71F0B337">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>SPECTRALCLASS</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3 CHAR</dataTypeSize>
+<ownDataTypeParameters>3 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="00EB5F41-E5CB-8196-D5E2-7EDE5702BBFD" referredColumn="476F41C4-35B0-3BD4-564F-2FE28EFB3DCD"/>
+</associations>
+</Column>
+<Column name="STELLARCATEGORY" id="518B8E48-107C-5618-0BE8-5F01F1C27812">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>STELLARPARAMETERS</sourceObjSchema>
+<sourceObjName>STELLARCATEGORY</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3 CHAR</dataTypeSize>
+<ownDataTypeParameters>3 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="00EB5F41-E5CB-8196-D5E2-7EDE5702BBFD" referredColumn="776FC70F-FF9A-5181-DA70-2157868B3832"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="340E20D6-7BC5-52B2-7461-68B2271515B7" name="STELLARPARAMETERS_PK">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>FABIO</sourceObjSchema>
+<sourceObjName>STELLARPARAMETERS_PK</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7E07EFF2-1460-4FEF-D3DB-1B1FF2EFB19E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3652B474-9A36-BADA-B09E-64E4C85CD19C" schemaObject="C3A0D281-EA7D-93D6-420B-F192B5F896F7" name="STELLARPARAMETERS_PK">
+<sourceConnName>Development</sourceConnName>
+<sourceObjSchema>FABIO</sourceObjSchema>
+<sourceObjName>STELLARPARAMETERS_PK</sourceObjName>
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7E07EFF2-1460-4FEF-D3DB-1B1FF2EFB19E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="26CDBFD3-3DED-7DA8-1203-B1574312E74F" name="STELLARPARAMETERS_FK">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="78AAB5B5-2F00-7AB4-31AA-674B71F0B337"/>
+<colUsage columnID="518B8E48-107C-5618-0BE8-5F01F1C27812"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

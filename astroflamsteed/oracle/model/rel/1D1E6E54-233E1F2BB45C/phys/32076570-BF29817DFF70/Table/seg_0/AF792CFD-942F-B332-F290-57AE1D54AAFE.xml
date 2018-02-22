@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="STELLARCLASSES" directorySegmentName="seg_0" id="AF792CFD-942F-B332-F290-57AE1D54AAFE">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>C3A0D281-EA7D-93D6-420B-F192B5F896F7</schemaObject>
+<logging>YES</logging>
+<partitionList class="oracle.dbtools.crest.model.design.storage.oracle.v11g.PartitionListOraclev11g" name="PL1" id="2B111103-00B7-63B8-1682-61AA11784F4B">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<columnIDs>476F41C4-35B0-3BD4-564F-2FE28EFB3DCD</columnIDs>
+<hashPQuantity>5</hashPQuantity>
+<partitionType>HASH BY LIST OF PARTITIONS</partitionType>
+</partitionList>
+<partitioned>YES</partitioned>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>3E15451B-CE9F-ECED-C0A6-D1DE1E3DEC02</segment>
+<tableSpace>52341F01-31B2-239B-5E5F-CE4275325289</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="TEMPERATUREKELVIN" id="18A09677-6114-EECB-A1C3-083DF5CB90CE">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BOLOMETRICMAGNITUDE" id="3A31DFCF-52E4-B552-41CA-5BB5491A51D6">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SPECTRALCLASS" id="476F41C4-35B0-3BD4-564F-2FE28EFB3DCD">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SOLARMASS" id="57CDE05E-4777-325D-37FF-5831DD780A8D">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SOLARDIAMETER" id="6E82AD60-81AA-27AA-C6B1-B6B8447991DD">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="STELLARCATEGORY" id="776FC70F-FF9A-5181-DA70-2157868B3832">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COLORINDEX" id="7FAD16B3-B80B-D73D-1FBD-E3BA3B6B44A0">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="MAGNITUDECORRECTION" id="DD0B81AA-C887-FC17-23DF-E00C75AEBEFE">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ABSOLUTEMAGNITUDE" id="DDE3457A-6E92-21BC-E463-9F26D95E4DE6">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="COLORRGB" id="F5374AFC-3706-918F-B721-9756D4EC2469">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SOLARLUMINOSITY" id="FED7D9BA-FF03-C96E-019E-C92A331A97FA">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="STELLARCLASSES_PK" id="E873DD9C-7C99-C603-C0CB-3067DAD0B407">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<schemaObject>C3A0D281-EA7D-93D6-420B-F192B5F896F7</schemaObject>
+<segment>22833C2C-4F87-7061-C32A-75EEE1ACD882</segment>
+<tableSpace>52341F01-31B2-239B-5E5F-CE4275325289</tableSpace>
+</IndexProxy>
+</indexProxies>
+<partitions>
+<Partition class="oracle.dbtools.crest.model.design.storage.oracle.v10g.HashPartitionOraclev10g" name="STELLARCLASSES_PT0" id="1AC8E4C2-2272-653E-5209-4AAED43833A8">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:10 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<position>1</position>
+<tableSpace>52341F01-31B2-239B-5E5F-CE4275325289</tableSpace>
+</Partition>
+<Partition class="oracle.dbtools.crest.model.design.storage.oracle.v10g.HashPartitionOraclev10g" name="STELLARCLASSES_PT1" id="D1867D18-0BC0-0EAE-9FD4-8D9821F0E9FE">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:10 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<position>2</position>
+<tableSpace>52341F01-31B2-239B-5E5F-CE4275325289</tableSpace>
+</Partition>
+<Partition class="oracle.dbtools.crest.model.design.storage.oracle.v10g.HashPartitionOraclev10g" name="STELLARCLASSES_PT2" id="CD979402-7061-B4AF-2A81-31D2888A040B">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:10 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<position>3</position>
+<tableSpace>52341F01-31B2-239B-5E5F-CE4275325289</tableSpace>
+</Partition>
+<Partition class="oracle.dbtools.crest.model.design.storage.oracle.v10g.HashPartitionOraclev10g" name="STELLARCLASSES_PT3" id="A8FAD89B-1B36-0E20-78FB-8539FCD054AC">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:10 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<position>4</position>
+<tableSpace>52341F01-31B2-239B-5E5F-CE4275325289</tableSpace>
+</Partition>
+<Partition class="oracle.dbtools.crest.model.design.storage.oracle.v10g.HashPartitionOraclev10g" name="STELLARCLASSES_PT4" id="9E72BAEA-56C9-B1C6-A996-699A322BBB70">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:10 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<position>5</position>
+<tableSpace>52341F01-31B2-239B-5E5F-CE4275325289</tableSpace>
+</Partition>
+</partitions>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="STELLARCLASSES_PK" id="266EB543-3280-A245-1BA1-A72E32C59E1F">
+<createdBy>FabioL</createdBy>
+<createdTime>2018-02-22 22:03:09 UTC</createdTime>
+<ownerDesignName>model</ownerDesignName>
+<segment>22833C2C-4F87-7061-C32A-75EEE1ACD882</segment>
+<tableSpace>52341F01-31B2-239B-5E5F-CE4275325289</tableSpace>
+<existingIndex>E873DD9C-7C99-C603-C0CB-3067DAD0B407</existingIndex>
+<indexSegment>22833C2C-4F87-7061-C32A-75EEE1ACD882</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

@@ -1,0 +1,1 @@
+SELECT temperatureKelvin FROM stellarClasses WHERE REGEXP_LIKE (spectralclass ,'^R[0-9]');
