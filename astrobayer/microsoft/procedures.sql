@@ -17,7 +17,7 @@ BEGIN
 	DECLARE stellarCursor CURSOR FOR SELECT designation, bolometricLuminosity FROM stellarParameters
 	SET @constantMass = 0.256
 
-	/*CURSOR OPENING, UPDATE LOOP AND CURSOR DEALLOCATION*/
+	/*CURSOR OPENING, MANIPULATION LOOP AND CURSOR DEALLOCATION*/
 	OPEN stellarCursor;
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedBolometricLuminosity
 
@@ -49,7 +49,7 @@ BEGIN
 	DECLARE stellarCursor CURSOR FOR SELECT designation, absoluteMagnitude FROM stellarParameters
 	SET @constantAbsoluteSolar = 4.83
 	
-    /*CURSOR OPENING, UPDATE LOOP AND CURSOR DEALLOCATION*/
+    /*CURSOR OPENING, MANIPULATION LOOP AND CURSOR DEALLOCATION*/
 	OPEN stellarCursor;
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude
 
@@ -81,7 +81,7 @@ BEGIN
 	DECLARE stellarCursor CURSOR FOR SELECT designation, bolometricMagnitude FROM stellarParameters
 	SET @constantBolometricSolar = 4.75
 
-	/*CURSOR OPENING, UPDATE LOOP AND CURSOR DEALLOCATION*/
+	/*CURSOR OPENING, MANIPULATION LOOP AND CURSOR DEALLOCATION*/
 	OPEN stellarCursor
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedBolometricMagnitude
     
@@ -112,7 +112,7 @@ BEGIN
 	/*CURSOR DECLARATION*/    
     DECLARE stellarCursor CURSOR FOR SELECT designation, apparentMagnitude, parsecs FROM stellarParameters
 
-	/*CURSOR OPENING, UPDATE LOOP AND CURSOR DEALLOCATION*/
+	/*CURSOR OPENING, MANIPULATION LOOP AND CURSOR DEALLOCATION*/
 	OPEN stellarCursor
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedApparentMagnitude, @fetchedParsecs
 
@@ -126,4 +126,65 @@ BEGIN
 	DEALLOCATE stellarCursor
 		       
 END
+GO
+
+DROP PROCEDURE IF EXISTS apparentMagnitude
+GO
+
+CREATE PROCEDURE apparentMagnitude(@roundingPrecision INT) AS
+
+BEGIN
+
+	/*VARIABLE DECLARATION*/
+	DECLARE @fetchedDesignation AS VARCHAR(45)
+    DECLARE @fetchedAbsoluteMagnitude AS FLOAT
+	DECLARE @fetchedParsecs AS FLOAT
+
+	/*CURSOR DECLARATION*/
+	DECLARE stellarCursor CURSOR FOR SELECT designation, absoluteMagnitude, parsecs FROM stellarParameters
+
+	/*CURSOR OPENING, MANIPULATION LOOP AND CURSOR DEALLOCATION*/	
+	OPEN stellarCursor
+	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude, @fetchedParsecs
+
+	WHILE @@FETCH_STATUS = 0
+		BEGIN
+			UPDATE stellarParameters SET apparentMagnitude = ROUND(@fetchedAbsoluteMagnitude - (5 * (1 - LOG(10, @fetchedParsecs))), @roundingPrecision) WHERE designation LIKE @fetchedDesignation
+            FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude, @fetchedParsecs
+        END
+		 
+    CLOSE stellarCursor
+    DEALLOCATE stellarCursor
+
+END
+GO
+
+DROP PROCEDURE IF EXISTS bolometricMagnitude
+GO
+
+CREATE PROCEDURE bolometricMagnitude(@roundingPrecision INT) AS
+
+BEGIN
+
+	/*VARIABLE DECLARATION*/
+	DECLARE @fetchedDesignation AS VARCHAR(45)
+	DECLARE @fetchedAbsoluteMagnitude AS FLOAT
+	DECLARE @fetchedMagnitudeCorrection AS FLOAT
+
+	/*CURSOR DECLARATION*/
+	DECLARE stellarCursor CURSOR FOR SELECT designation, absoluteMagnitude, magnitudeCorrection FROM stellarBolometricsTransient
+
+	/*CURSOR OPENING, MANIPULATION LOOP AND CURSOR DEALLOCATION*/
+	OPEN stellarCursor
+	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude, @fetchedMagnitudeCorrection
+
+		BEGIN  
+			UPDATE stellarParameters SET bolometricMagnitude = ROUND((@fetchedAbsoluteMagnitude + @fetchedMagnitudeCorrection), @roundingPrecision) WHERE designation LIKE @fetchedDesignation
+			FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude, @fetchedMagnitudeCorrection
+        END
+
+    CLOSE stellarCursor
+	DEALLOCATE stellarCursor
+
+END    
 GO
