@@ -21,11 +21,15 @@ BEGIN
 	OPEN stellarCursor;
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedBolometricLuminosity
 
-	WHILE @@FETCH_STATUS = 0
-		BEGIN		
-			UPDATE stellarParameters SET solarMass = ROUND(POWER(@fetchedBolometricLuminosity, @constantMass), @roundingPrecision) WHERE designation LIKE @fetchedDesignation
-			FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedBolometricLuminosity
-		END
+	WHILE @@FETCH_STATUS = 0 BEGIN
+			
+		/*PROCEDURE CORE*/
+		UPDATE stellarParameters
+		SET solarMass = ROUND(POWER(@fetchedBolometricLuminosity, @constantMass), @roundingPrecision) 
+		WHERE designation LIKE @fetchedDesignation
+
+		FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedBolometricLuminosity
+	END
 
 	CLOSE stellarCursor
 	DEALLOCATE stellarCursor
@@ -44,17 +48,24 @@ BEGIN
 	DECLARE @fetchedDesignation AS VARCHAR(45)
 	DECLARE @fetchedAbsoluteMagnitude AS FLOAT
     DECLARE @constantAbsoluteSolar AS FLOAT
+	DECLARE @constantFloatExpression AS FLOAT
 
 	/*CURSOR DECLARATION AND CONSTANT INITIALISATION*/
 	DECLARE stellarCursor CURSOR FOR SELECT designation, absoluteMagnitude FROM stellarParameters
 	SET @constantAbsoluteSolar = 4.83
+	SET @constantFloatExpression = 10.00
 	
     /*CURSOR OPENING, MANIPULATION LOOP AND CURSOR DEALLOCATION*/
 	OPEN stellarCursor;
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude
 
 	WHILE @@FETCH_STATUS = 0 BEGIN
-		UPDATE stellarParameters SET absoluteLuminosity = ROUND(POWER(10, (@constantAbsoluteSolar - @fetchedAbsoluteMagnitude) / 2.5), @roundingPrecision) WHERE designation LIKE @fetchedDesignation
+		
+		/*PROCEDURE CORE*/
+		UPDATE stellarParameters 
+		SET absoluteLuminosity = ROUND(POWER(@constantFloatExpression, (@constantAbsoluteSolar - @fetchedAbsoluteMagnitude) / 2.5), @roundingPrecision)
+		WHERE designation LIKE @fetchedDesignation
+
 		FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude
 	END
 	        
@@ -75,17 +86,24 @@ BEGIN
 	DECLARE @fetchedDesignation AS VARCHAR(45)
 	DECLARE @fetchedBolometricMagnitude AS FLOAT
     DECLARE @constantBolometricSolar AS FLOAT
+	DECLARE @constantFloatExpression AS FLOAT
 
 	/*CURSOR DECLARATION AND CONSTANT INITIALISATION*/
 	DECLARE stellarCursor CURSOR FOR SELECT designation, bolometricMagnitude FROM stellarParameters
 	SET @constantBolometricSolar = 4.75
+	SET @constantFloatExpression = 10.00
 
 	/*CURSOR OPENING, MANIPULATION LOOP AND CURSOR DEALLOCATION*/
 	OPEN stellarCursor
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedBolometricMagnitude
     
     WHILE @@FETCH_STATUS = 0 BEGIN
-		UPDATE stellarParameters SET bolometricLuminosity = ROUND(POWER(10, ((@constantBolometricSolar - @fetchedBolometricMagnitude) / 2.5)), @roundingPrecision) WHERE designation LIKE @fetchedDesignation;
+		
+		/*PROCEDURE CORE*/
+		UPDATE stellarParameters 
+		SET bolometricLuminosity = ROUND(POWER(@constantFloatExpression, ((@constantBolometricSolar - @fetchedBolometricMagnitude) / 2.5)), @roundingPrecision) 
+		WHERE designation LIKE @fetchedDesignation
+
 		FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedBolometricMagnitude
 	END
 
@@ -114,8 +132,13 @@ BEGIN
 	OPEN stellarCursor
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedApparentMagnitude, @fetchedParsecs
 
-	WHILE @@FETCH_STATUS = 0 BEGIN    
-		UPDATE stellarParameters SET absoluteMagnitude = ROUND(@fetchedApparentMagnitude - (5 * (LOG(10, @fetchedParsecs / 10))), @roundingPrecision) WHERE designation LIKE @fetchedDesignation;
+	WHILE @@FETCH_STATUS = 0 BEGIN
+	    
+		/*PROCEDURE CORE*/
+		UPDATE stellarParameters 
+		SET absoluteMagnitude = ROUND(@fetchedApparentMagnitude - (5 * (LOG10(@fetchedParsecs / 10))), @roundingPrecision) 
+		WHERE designation LIKE @fetchedDesignation
+
 		FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedApparentMagnitude, @fetchedParsecs
     END
 
@@ -145,7 +168,12 @@ BEGIN
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude, @fetchedParsecs
 
 	WHILE @@FETCH_STATUS = 0 BEGIN
-		UPDATE stellarParameters SET apparentMagnitude = ROUND(@fetchedAbsoluteMagnitude - (5 * (1 - LOG(10, @fetchedParsecs))), @roundingPrecision) WHERE designation LIKE @fetchedDesignation
+
+		/*PROCEDURE CORE*/
+		UPDATE stellarParameters
+		SET apparentMagnitude = ROUND(@fetchedAbsoluteMagnitude - (5 * (1 - LOG10(@fetchedParsecs))), @roundingPrecision) 
+		WHERE designation LIKE @fetchedDesignation
+
         FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude, @fetchedParsecs
     END
 		 
@@ -174,8 +202,13 @@ BEGIN
 	OPEN stellarCursor
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude, @fetchedMagnitudeCorrection
 
-	WHILE @@FETCH_STATUS = 0 BEGIN  
-		UPDATE stellarParameters SET bolometricMagnitude = ROUND((@fetchedAbsoluteMagnitude + @fetchedMagnitudeCorrection), @roundingPrecision) WHERE designation LIKE @fetchedDesignation
+	WHILE @@FETCH_STATUS = 0 BEGIN
+	  
+		/*PROCEDURE CORE*/
+		UPDATE stellarParameters 
+		SET bolometricMagnitude = ROUND((@fetchedAbsoluteMagnitude + @fetchedMagnitudeCorrection), @roundingPrecision) 
+		WHERE designation LIKE @fetchedDesignation
+
 		FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedAbsoluteMagnitude, @fetchedMagnitudeCorrection
     END
 
@@ -210,11 +243,13 @@ BEGIN
     
     /*MANIPULATION LOOP WITH CONDITIONAL LOGIC DEPENDENT ON THE OPTION SPECIFIED*/    
     WHILE @@FETCH_STATUS = 0 BEGIN
-		IF @preferredConversion = 0 BEGIN
+
+		/*PROCEDURE CORE*/
+		IF @preferredConversion = 0 BEGIN /*CONVERSION TO PARSECS*/
 			UPDATE stellarParameters SET parsecs = ROUND((@fetchedLightYears * @constantParsecsConversion), @roundingPrecision) WHERE designation LIKE @fetchedDesignation
 			FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedParsecs, @fetchedLightYears
 		END
-		ELSE IF @preferredConversion = 1 BEGIN
+		ELSE IF @preferredConversion = 1 BEGIN /*CONVERSION TO LIGHT YEARS*/
 			UPDATE stellarParameters SET lightYears = ROUND((@fetchedParsecs * @constantLightYearsConversion), @roundingPrecision) WHERE designation LIKE @fetchedDesignation
 			FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedParsecs, @fetchedLightYears
 		END
@@ -255,19 +290,22 @@ BEGIN
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedBolometricLuminosity
 
     WHILE @@FETCH_STATUS = 0 BEGIN
-            
-		SET @tempCurrentInner = ROUND((@fetchedBolometricLuminosity / @constantInnerBoundary), @roundingPrecision)
-		SET @tempcurrentOuter = ROUND((@fetchedBolometricLuminosity / @constantOuterBoundary), @roundingPrecision)
+        
+		/*PROCEDURE CORE*/    
+		SET @tempCurrentInner = (@fetchedBolometricLuminosity / @constantInnerBoundary)
+		SET @tempcurrentOuter = (@fetchedBolometricLuminosity / @constantOuterBoundary)
             
         UPDATE stellarParameters 
             SET
-            innerBoundary = SQRT(@tempCurrentInner),
-            outerBoundary = SQRT(@tempCurrentOuter),
+            innerBoundary = ROUND(SQRT(@tempCurrentInner), @roundingPrecision),
+            outerBoundary = ROUND(SQRT(@tempCurrentOuter), @roundingPrecision),
             gregorianYear = ROUND((((@tempCurrentInner + @tempCurrentOuter) / @constantGoldilocks) * @constantGregorianYear), @roundingPrecision)
-        WHERE designation LIKE @fetchedDesignation;
+        WHERE designation LIKE @fetchedDesignation
+
 		FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedBolometricLuminosity
                 
-        END    
+        END
+		    
     CLOSE stellarCursor
 	DEALLOCATE stellarCursor 
    
@@ -304,12 +342,16 @@ BEGIN
 	FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedTemperature, @fetchedBolometricMagnitude
 
 	WHILE @@FETCH_STATUS = 0 BEGIN
-
+		
+		/*PROCEDURE CORE*/
 		SET @tempPower1 = POWER((@constantSolarTemperature / @fetchedTemperature), 2)
         SET @tempPower2 = POWER(@constantPogson, (@constantSolarBolometric - @fetchedBolometricMagnitude))
         SET @tempPower3 = POWER(@tempPower2, 0.5)
             
-        UPDATE stellarParameters SET solarDiameter = ROUND((@tempPower1 * @tempPower3), @roundingPrecision) WHERE designation LIKE @fetchedDesignation
+        UPDATE stellarParameters
+			SET solarDiameter = ROUND((@tempPower1 * @tempPower3), @roundingPrecision) 
+		WHERE designation LIKE @fetchedDesignation
+
         FETCH NEXT FROM stellarCursor INTO @fetchedDesignation, @fetchedTemperature, @fetchedBolometricMagnitude
     END  
 	  
