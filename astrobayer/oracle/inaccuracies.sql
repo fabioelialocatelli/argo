@@ -1,6 +1,6 @@
 CREATE OR REPLACE VIEW stellarInaccuraciesTransient AS
     SELECT 
-        parameterAlias.designation AS bayerDesignation,
+        parameterAlias.designation AS designationBayer,
         nameAlias.denomination AS properName,
         parameterAlias.parallax,
         parameterAlias.parsecs,
@@ -62,4 +62,5 @@ CREATE OR REPLACE VIEW stellarInaccuraciesTransient AS
             'π Puppis',
             'σ Scorpii',
             'τ Scorpii')
-    ORDER BY bayerDesignation;
+    ORDER BY designationBayer;
+    

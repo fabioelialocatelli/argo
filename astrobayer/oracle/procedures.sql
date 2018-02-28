@@ -16,7 +16,10 @@ BEGIN
             
             FETCH stellarCursor INTO fetchedDesignation, fetchedBolometricLuminosity;
             EXIT WHEN stellarCursor%NOTFOUND;
-            UPDATE stellarParameters SET solarMass = ROUND(POWER(fetchedBolometricLuminosity, constantMass), roundingPrecision) WHERE designation LIKE fetchedDesignation;
+            
+            UPDATE stellarParameters 
+                SET solarMass = ROUND(POWER(fetchedBolometricLuminosity, constantMass), roundingPrecision) 
+            WHERE designation LIKE fetchedDesignation;
         
         END LOOP;
         CLOSE stellarCursor;
@@ -24,7 +27,7 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE PROCEDURE absoluteLuminosity(roundingPrecision IN NUMBER DEFAULT 4) AS
+CREATE OR REPLACE PROCEDURE absoluteLuminosity(roundingPrecision IN NUMBER DEFAULT 2) AS
 
 BEGIN
 
@@ -41,8 +44,11 @@ BEGIN
         LOOP
         
             FETCH stellarCursor INTO fetchedDesignation, fetchedAbsoluteMagnitude;
-            EXIT WHEN stellarCursor%NOTFOUND; 
-            UPDATE stellarParameters SET absoluteLuminosity = ROUND(POWER(10, (constantAbsoluteSolar - fetchedAbsoluteMagnitude) / 2.5), roundingPrecision) WHERE designation LIKE fetchedDesignation;
+            EXIT WHEN stellarCursor%NOTFOUND;
+            
+            UPDATE stellarParameters 
+                SET absoluteLuminosity = ROUND(POWER(10, (constantAbsoluteSolar - fetchedAbsoluteMagnitude) / 2.5), roundingPrecision) 
+            WHERE designation LIKE fetchedDesignation;
         
         END LOOP;        
         CLOSE stellarCursor;
@@ -50,7 +56,7 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE PROCEDURE bolometricLuminosity(roundingPrecision IN NUMBER DEFAULT 4) AS
+CREATE OR REPLACE PROCEDURE bolometricLuminosity(roundingPrecision IN NUMBER DEFAULT 2) AS
 
 BEGIN
 
@@ -68,7 +74,10 @@ BEGIN
             
             FETCH stellarCursor INTO fetchedDesignation, fetchedBolometricMagnitude;
             EXIT WHEN stellarCursor%NOTFOUND;
-            UPDATE stellarParameters SET bolometricLuminosity = ROUND(POWER(10, ((constantBolometricSolar - fetchedBolometricMagnitude) / 2.5)), roundingPrecision) WHERE designation LIKE fetchedDesignation;
+            
+            UPDATE stellarParameters 
+                SET bolometricLuminosity = ROUND(POWER(10, ((constantBolometricSolar - fetchedBolometricMagnitude) / 2.5)), roundingPrecision) 
+            WHERE designation LIKE fetchedDesignation;
             
         END LOOP;
         CLOSE stellarCursor;
@@ -94,7 +103,10 @@ BEGIN
         
             FETCH stellarCursor INTO fetchedDesignation, fetchedApparentMagnitude, fetchedParsecs;
             EXIT WHEN stellarCursor%NOTFOUND;
-            UPDATE stellarParameters SET absoluteMagnitude = ROUND(fetchedApparentMagnitude - (5 * (LOG(10, fetchedParsecs / 10))), roundingPrecision) WHERE designation LIKE fetchedDesignation;
+            
+            UPDATE stellarParameters 
+                SET absoluteMagnitude = ROUND(fetchedApparentMagnitude - (5 * (LOG(10, fetchedParsecs / 10))), roundingPrecision) 
+            WHERE designation LIKE fetchedDesignation;
         
         END LOOP;
         CLOSE stellarCursor;
@@ -120,7 +132,10 @@ BEGIN
             
             FETCH stellarCursor INTO fetchedDesignation, fetchedAbsoluteMagnitude, fetchedParsecs;
             EXIT WHEN stellarCursor%NOTFOUND;
-            UPDATE stellarParameters SET apparentMagnitude = ROUND(fetchedAbsoluteMagnitude - (5 * (1 - LOG(10, fetchedParsecs))), roundingPrecision) WHERE designation LIKE fetchedDesignation;
+            
+            UPDATE stellarParameters 
+                SET apparentMagnitude = ROUND(fetchedAbsoluteMagnitude - (5 * (1 - LOG(10, fetchedParsecs))), roundingPrecision) 
+            WHERE designation LIKE fetchedDesignation;
             
         END LOOP;
         CLOSE stellarCursor;
@@ -146,7 +161,10 @@ BEGIN
         
             FETCH stellarCursor INTO fetchedDesignation, fetchedAbsoluteMagnitude, fetchedMagnitudeCorrection;
             EXIT WHEN stellarCursor%NOTFOUND;
-            UPDATE stellarParameters SET bolometricMagnitude = ROUND((fetchedAbsoluteMagnitude + fetchedMagnitudeCorrection), roundingPrecision) WHERE designation LIKE fetchedDesignation;
+            
+            UPDATE stellarParameters 
+                SET bolometricMagnitude = ROUND((fetchedAbsoluteMagnitude + fetchedMagnitudeCorrection), roundingPrecision) 
+            WHERE designation LIKE fetchedDesignation;
         
         END LOOP;
         CLOSE stellarCursor;
@@ -177,9 +195,17 @@ BEGIN
             EXIT WHEN stellarCursor%NOTFOUND;
             
             IF preferredConversion = 0 THEN
-                UPDATE stellarParameters SET parsecs = ROUND((fetchedLightYears * constantParsecsConversion), roundingPrecision) WHERE designation LIKE fetchedDesignation;
+            
+                UPDATE stellarParameters 
+                    SET parsecs = ROUND((fetchedLightYears * constantParsecsConversion), roundingPrecision) 
+                WHERE designation LIKE fetchedDesignation;
+                
             ELSIF preferredConversion = 1 THEN
-                UPDATE stellarParameters SET lightYears = ROUND((fetchedParsecs * constantLightYearsConversion), roundingPrecision) WHERE designation LIKE fetchedDesignation;
+            
+                UPDATE stellarParameters 
+                    SET lightYears = ROUND((fetchedParsecs * constantLightYearsConversion), roundingPrecision)
+                WHERE designation LIKE fetchedDesignation;
+                
             END IF;
             
         END LOOP;
@@ -188,7 +214,7 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE PROCEDURE goldilocksBoundaries(roundingPrecision IN NUMBER DEFAULT 4) AS
+CREATE OR REPLACE PROCEDURE goldilocksBoundaries(roundingPrecision IN NUMBER DEFAULT 2) AS
 
 BEGIN
 
@@ -214,13 +240,13 @@ BEGIN
             FETCH stellarCursor INTO fetchedDesignation, fetchedBolometricLuminosity;
             EXIT WHEN stellarCursor%NOTFOUND;
             
-            tempCurrentInner := ROUND((fetchedBolometricLuminosity / constantInnerBoundary), roundingPrecision);
-            tempcurrentOuter := ROUND((fetchedBolometricLuminosity / constantOuterBoundary), roundingPrecision);
+            tempCurrentInner := (fetchedBolometricLuminosity / constantInnerBoundary);
+            tempcurrentOuter := (fetchedBolometricLuminosity / constantOuterBoundary);
             
             UPDATE stellarParameters 
                 SET
-                innerBoundary = SQRT(tempCurrentInner),
-                outerBoundary = SQRT(tempCurrentOuter),
+                innerBoundary = ROUND(SQRT(tempCurrentInner), roundingPrecision),
+                outerBoundary = ROUND(SQRT(tempCurrentOuter), roundingPrecision),
                 gregorianYear = ROUND((((tempCurrentInner + tempCurrentOuter) / constantGoldilocks) * constantGregorianYear), roundingPrecision)
             WHERE designation LIKE fetchedDesignation;
                 
@@ -260,7 +286,9 @@ BEGIN
             tempPower2 := POWER(constantPogson, (constantSolarBolometric - fetchedBolometricMagnitude));
             tempPower3 := POWER(tempPower2, 0.5);
             
-            UPDATE stellarParameters SET solarDiameter = ROUND((tempPower1 * tempPower3), roundingPrecision) WHERE designation LIKE fetchedDesignation;
+            UPDATE stellarParameters 
+                SET solarDiameter = ROUND((tempPower1 * tempPower3), roundingPrecision) 
+            WHERE designation LIKE fetchedDesignation;
             
         END LOOP;    
         CLOSE stellarCursor;
