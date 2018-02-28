@@ -1,53 +1,53 @@
 USE flamsteed;
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE table_stellarparameters SET apparentMagnitude = NULL;
-CALL PROCEDURE_apparentMagnitude();
+UPDATE stellarParameters SET apparentMagnitude = NULL;
+CALL apparentMagnitude(2);
 SET SQL_SAFE_UPDATES = 1;
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE table_stellarparameters SET absoluteMagnitude = NULL;
-CALL PROCEDURE_absoluteMagnitude();
+UPDATE stellarParameters SET absoluteMagnitude = NULL;
+CALL absoluteMagnitude(2);
 SET SQL_SAFE_UPDATES = 1;
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE table_stellarparameters SET bolometricMagnitude = NULL;
-CALL PROCEDURE_bolometricMagnitude();
+UPDATE stellarParameters SET bolometricMagnitude = NULL;
+CALL bolometricMagnitude(2);
 SET SQL_SAFE_UPDATES = 1;
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE table_stellarparameters SET absoluteLuminosity = NULL;
-CALL PROCEDURE_absoluteLuminosity();
+UPDATE stellarParameters SET absoluteLuminosity = NULL;
+CALL absoluteLuminosity(4);
 SET SQL_SAFE_UPDATES = 1;
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE table_stellarparameters SET bolometricLuminosity = NULL;
-CALL PROCEDURE_bolometricLuminosity();
+UPDATE stellarParameters SET bolometricLuminosity = NULL;
+CALL bolometricLuminosity(4);
 SET SQL_SAFE_UPDATES = 1;
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE table_stellarparameters SET solarMass = NULL;
-CALL PROCEDURE_solarMass();
+UPDATE stellarParameters SET solarMass = NULL;
+CALL solarMass(2);
 SET SQL_SAFE_UPDATES = 1;
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE table_stellarparameters SET parsecs = NULL;
-CALL PROCEDURE_distanceConversion(0);
+UPDATE stellarParameters SET parsecs = NULL;
+CALL distanceConversion(0, 2);
 SET SQL_SAFE_UPDATES = 1;
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE table_stellarparameters SET lightYears = NULL;
-CALL PROCEDURE_distanceConversion(1);
+UPDATE stellarParameters SET lightYears = NULL;
+CALL distanceConversion(1, 2);
 SET SQL_SAFE_UPDATES = 1;
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE table_stellarparameters SET solarDiameter = NULL;
-CALL PROCEDURE_solarDiameter();
+UPDATE stellarParameters SET solarDiameter = NULL;
+CALL solarDiameter(2);
 SET SQL_SAFE_UPDATES = 1;
 
 SET SQL_SAFE_UPDATES = 0;
-UPDATE table_stellarparameters SET innerBoundary = NULL;
-UPDATE table_stellarparameters SET outerBoundary = NULL;
-UPDATE table_stellarparameters SET gregorianYear = NULL;
-CALL PROCEDURE_goldilocksBoundaries();
+UPDATE stellarParameters SET innerBoundary = NULL;
+UPDATE stellarParameters SET outerBoundary = NULL;
+UPDATE stellarParameters SET gregorianYear = NULL;
+CALL goldilocksBoundaries(2);
 SET SQL_SAFE_UPDATES = 1;

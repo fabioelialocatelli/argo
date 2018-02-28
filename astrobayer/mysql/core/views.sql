@@ -1,7 +1,7 @@
 USE bayer;
 
-DROP VIEW IF EXISTS VIEW_stellarIdentifiers;
-CREATE VIEW VIEW_stellarIdentifiers AS
+DROP VIEW IF EXISTS stellarIdentifiersTransient;
+CREATE VIEW stellarIdentifiersTransient AS
     SELECT 
         classicAlias.denomination AS denomination,
         classicAlias.designation AS designation,
@@ -9,12 +9,12 @@ CREATE VIEW VIEW_stellarIdentifiers AS
         parameterAlias.identifierHIP AS identifierHIP,
         parameterAlias.identifierSAO AS identifierSAO
     FROM
-        TABLE_stellarName classicAlias
+        stellarNames classicAlias
             LEFT JOIN
-        TABLE_stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
+        stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
 
-DROP VIEW IF EXISTS VIEW_stellarMagnitudes;
-CREATE VIEW VIEW_stellarMagnitudes AS
+DROP VIEW IF EXISTS stellarMagnitudesTransient;
+CREATE VIEW stellarMagnitudesTransient AS
     SELECT 
         classicAlias.denomination AS denomination,
         classicAlias.designation AS designation,
@@ -22,12 +22,12 @@ CREATE VIEW VIEW_stellarMagnitudes AS
         parameterAlias.absoluteMagnitude AS absoluteMagnitude,
         parameterAlias.bolometricMagnitude AS bolometricMagnitude
     FROM
-        TABLE_stellarName classicAlias
+        stellarNames classicAlias
             LEFT JOIN
-        TABLE_stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
+        stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
 
-DROP VIEW IF EXISTS VIEW_stellarParameters;
-CREATE VIEW VIEW_stellarParameters AS
+DROP VIEW IF EXISTS stellarParametersTransient;
+CREATE VIEW stellarParametersTransient AS
     SELECT 
         classicAlias.denomination AS denomination,
         classicAlias.designation AS designation,
@@ -36,12 +36,12 @@ CREATE VIEW VIEW_stellarParameters AS
         parameterAlias.bolometricLuminosity AS bolometricLuminosity,
         parameterAlias.solarMass AS solarMass
     FROM
-        TABLE_stellarName classicAlias
+        stellarNames classicAlias
             LEFT JOIN
-        TABLE_stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
+        stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
 
-DROP VIEW IF EXISTS VIEW_stellarHabitability;
-CREATE VIEW VIEW_stellarHabitability AS
+DROP VIEW IF EXISTS stellarBoundariesTransient;
+CREATE VIEW stellarBoundariesTransient AS
     SELECT 
         classicAlias.denomination AS denomination,
         classicAlias.designation AS designation,
@@ -49,24 +49,24 @@ CREATE VIEW VIEW_stellarHabitability AS
         parameterAlias.outerBoundary AS outerBoundary,
         parameterAlias.gregorianYear AS gregorianYear
     FROM
-        TABLE_stellarName classicAlias
+        stellarNames classicAlias
             LEFT JOIN
-        TABLE_stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
+        stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
     
-DROP VIEW IF EXISTS VIEW_stellarSpectra;
-CREATE VIEW VIEW_stellarSpectra AS
+DROP VIEW IF EXISTS stellarClassesTransient;
+CREATE VIEW stellarClassesTransient AS
     SELECT 
         classicAlias.denomination AS denomination,
         classicAlias.designation AS designation,
         parameterAlias.spectralClass AS spectralClass,
         parameterAlias.stellarCategory AS stellarCategory
     FROM
-        TABLE_stellarName classicAlias
+        stellarNames classicAlias
             LEFT JOIN
-        TABLE_stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
+        stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
         
-DROP VIEW IF EXISTS VIEW_stellarConsole;
-CREATE VIEW VIEW_stellarConsole AS
+DROP VIEW IF EXISTS stellarParadesTransient;
+CREATE VIEW stellarParadesTransient AS
     SELECT 
         classicAlias.denomination AS denomination,
         classicAlias.designation AS designation,
@@ -84,24 +84,24 @@ CREATE VIEW VIEW_stellarConsole AS
         parameterAlias.spectralClass AS spectralClass,
         parameterAlias.stellarCategory AS stellarCategory
     FROM
-        TABLE_stellarName classicAlias
+        stellarNames classicAlias
             LEFT JOIN
-        TABLE_stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
+        stellarParameters parameterAlias ON classicAlias.designation = parameterAlias.designation;
         
-DROP VIEW IF EXISTS VIEW_bolometricMagnitude;
-CREATE VIEW VIEW_bolometricMagnitude AS
+DROP VIEW IF EXISTS stellarBolometricsTransient;
+CREATE VIEW stellarBolometricsTransient AS
     SELECT 
         parametersAlias.designation,
         parametersAlias.absoluteMagnitude,
         classAlias.magnitudeCorrection
     FROM
-        TABLE_stellarParameters parametersAlias
+        stellarParameters parametersAlias
             LEFT JOIN
-        TABLE_stellarClass classAlias ON parametersAlias.spectralClass = classAlias.spectralClass
+        stellarClasses classAlias ON parametersAlias.spectralClass = classAlias.spectralClass
             AND parametersAlias.stellarCategory = classAlias.stellarCategory;
             
-DROP VIEW IF EXISTS VIEW_solarDiameter;
-CREATE VIEW VIEW_solarDiameter AS
+DROP VIEW IF EXISTS stellarDiametersTransient;
+CREATE VIEW stellarDiametersTransient AS
     SELECT 
         parametersAlias.designation,
         parametersAlias.bolometricMagnitude,
@@ -110,7 +110,7 @@ CREATE VIEW VIEW_solarDiameter AS
         classAlias.stellarCategory,
         classAlias.temperatureKelvin
     FROM
-        TABLE_stellarParameters parametersAlias
+        stellarParameters parametersAlias
             LEFT JOIN
-        TABLE_stellarClass classAlias ON parametersAlias.spectralClass = classAlias.spectralClass
+        stellarClasses classAlias ON parametersAlias.spectralClass = classAlias.spectralClass
             AND parametersAlias.stellarCategory = classAlias.stellarCategory;
