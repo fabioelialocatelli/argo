@@ -15,10 +15,10 @@ CREATE VIEW testSolarMass AS
     WHERE
         parametersAlias.designation LIKE '%Ophiuchi'
 GO
-        
+
 DROP VIEW IF EXISTS testAbsoluteLuminosity
 GO
-
+        
 CREATE VIEW testAbsoluteLuminosity AS
     SELECT 
         ROUND(POWER(10,
@@ -30,13 +30,13 @@ CREATE VIEW testAbsoluteLuminosity AS
     WHERE
         parametersAlias.designation LIKE '%Ophiuchi'
 GO
-        
+
 DROP VIEW IF EXISTS testAbsoluteMagnitude
 GO
-
+        
 CREATE VIEW testAbsoluteMagnitude AS
     SELECT 
-        ROUND(parametersAlias.apparentMagnitude - (5 * (LOG10(parametersAlias.Parsecs / 10))),
+        ROUND(parametersAlias.apparentMagnitude - (5 * (LOG(10, (parametersAlias.Parsecs / 10)))),
                 2) AS valueCalculated,
         parametersAlias.absoluteMagnitude AS valueCurrent
     FROM
@@ -44,13 +44,13 @@ CREATE VIEW testAbsoluteMagnitude AS
     WHERE
         parametersAlias.designation LIKE '%Ophiuchi'
 GO
-        
+
 DROP VIEW IF EXISTS testApparentMagnitude
 GO
-
+        
 CREATE VIEW testApparentMagnitude AS
     SELECT 
-        ROUND(parametersAlias.absoluteMagnitude - (5 * (1 - LOG10(parametersAlias.Parsecs))),
+        ROUND(parametersAlias.absoluteMagnitude - (5 * (1 - LOG(10, (parametersAlias.Parsecs)))),
                 2) AS valueCalculated,
         parametersAlias.apparentMagnitude AS valueCurrent
     FROM
@@ -58,10 +58,10 @@ CREATE VIEW testApparentMagnitude AS
     WHERE
         parametersAlias.designation LIKE '%Ophiuchi'
 GO
-        
+
 DROP VIEW IF EXISTS testBolometricLuminosity
 GO
-
+        
 CREATE VIEW testBolometricLuminosity AS
     SELECT 
         ROUND(POWER(10,
@@ -73,46 +73,30 @@ CREATE VIEW testBolometricLuminosity AS
     WHERE
         parametersAlias.designation LIKE '%Ophiuchi'
 GO
-               
+
 DROP VIEW IF EXISTS testGoldilocksBoundaries
 GO
-
+               
 CREATE VIEW testGoldilocksBoundaries AS
     SELECT 
         parametersAlias.innerBoundary AS currentInnerBoundary,
         ROUND(SQRT((parametersAlias.bolometricLuminosity / 1.10)),
-                4) AS calculatedInnerBoundary,
+                2) AS calculatedInnerBoundary,
         parametersAlias.outerBoundary AS currentOuterBoundary,
         ROUND(SQRT((parametersAlias.bolometricLuminosity / 0.53)),
-                4) AS calculatedOuterBoundary,
+                2) AS calculatedOuterBoundary,
         parametersAlias.gregorianYear AS currentGregorianYear,
-        ROUND((((parametersAlias.innerBoundary + parametersAlias.outerBoundary) / 2.795883) * 365.2425),
-                4) AS calculatedGregorianYear
+        ROUND(((((parametersAlias.bolometricLuminosity / 1.10) +
+				(parametersAlias.bolometricLuminosity / 0.53)) / 2.795883) * 365.2425), 2) AS calculatedGregorianYear
     FROM
         stellarParameters parametersAlias
     WHERE
         designation LIKE '%Ophiuchi'
 GO
-        
-DROP VIEW IF EXISTS testBolometricMagnitude
-GO
 
-CREATE VIEW testBolometricMagnitude AS
-    SELECT 
-        ROUND((procedureViewAlias.absoluteMagnitude + procedureViewAlias.magnitudeCorrection),
-                2) AS valueCalculated,
-        magnitudesAlias.bolometricMagnitude AS valueCurrent
-    FROM
-        stellarBolometricsTransient procedureViewAlias
-            LEFT JOIN
-        stellarMagnitudesTransient magnitudesAlias ON magnitudesAlias.designation = procedureViewAlias.designation
-    WHERE
-        magnitudesAlias.designation LIKE '%Ophiuchi'
-GO
-        
 DROP VIEW IF EXISTS testDistanceConversion
 GO
-
+        
 CREATE VIEW testDistanceConversion AS
     SELECT 
         ROUND((parametersAlias.lightYears * 0.306594845),
@@ -126,6 +110,22 @@ CREATE VIEW testDistanceConversion AS
     WHERE
         designation LIKE '%Ophiuchi'
 GO
+
+DROP VIEW IF EXISTS testBolometricMagnitude
+GO
+        
+CREATE VIEW testBolometricMagnitude AS
+    SELECT 
+        ROUND((procedureViewAlias.absoluteMagnitude + procedureViewAlias.magnitudeCorrection),
+                2) AS valueCalculated,
+        magnitudesAlias.bolometricMagnitude AS valueCurrent
+    FROM
+        stellarBolometricsTransient procedureViewAlias
+            LEFT JOIN
+        stellarMagnitudesTransient magnitudesAlias ON magnitudesAlias.designation = procedureViewAlias.designation
+    WHERE
+        magnitudesAlias.designation LIKE '%Ophiuchi'
+GO     
 
 DROP VIEW IF EXISTS testSolarDiameter
 GO
@@ -141,8 +141,7 @@ CREATE VIEW testSolarDiameter AS
     FROM
         stellarDiametersTransient procedureViewAlias
             LEFT JOIN
-        stellarClassesTransient classesAlias ON classesAlias.spectralClass = procedureViewAlias.spectralClass
-            AND classesAlias.stellarCategory = procedureViewAlias.stellarCategory
+        stellarClassesTransient classesAlias ON classesAlias.designation = procedureViewAlias.designation
     WHERE
         classesAlias.designation LIKE '%Ophiuchi'
 GO

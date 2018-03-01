@@ -55,13 +55,13 @@ CREATE OR REPLACE VIEW testGoldilocksBoundaries AS
     SELECT 
         parametersAlias.innerBoundary AS currentInnerBoundary,
         ROUND(SQRT((parametersAlias.bolometricLuminosity / 1.10)),
-                4) AS calculatedInnerBoundary,
+                2) AS calculatedInnerBoundary,
         parametersAlias.outerBoundary AS currentOuterBoundary,
         ROUND(SQRT((parametersAlias.bolometricLuminosity / 0.53)),
-                4) AS calculatedOuterBoundary,
+                2) AS calculatedOuterBoundary,
         parametersAlias.gregorianYear AS currentGregorianYear,
-        ROUND((((parametersAlias.innerBoundary + parametersAlias.outerBoundary) / 2.795883) * 365.2425),
-                4) AS calculatedGregorianYear
+        ROUND(((((parametersAlias.bolometricLuminosity / 1.10) +
+				(parametersAlias.bolometricLuminosity / 0.53)) / 2.795883) * 365.2425), 2) AS calculatedGregorianYear
     FROM
         stellarParameters parametersAlias
     WHERE
@@ -92,7 +92,7 @@ CREATE OR REPLACE VIEW testBolometricMagnitude AS
     WHERE
         magnitudesAlias.designation LIKE '%Canum Venaticorum';      
 
-CREATE OR REPLACE VIEW testSolarDiameter AS /*ANOMALY*/
+CREATE OR REPLACE VIEW testSolarDiameter AS
     SELECT 
         ROUND(POWER((5777 / procedureViewAlias.temperatureKelvin),
                         2) * (POWER(POWER(2.511886431,
